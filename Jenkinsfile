@@ -1,7 +1,12 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+    
+    agent {
+        docker {
+            image 'nginx'
+        }
+    }
 
     stages {
         stage('Build') {
@@ -12,7 +17,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                docker pull nginx
             }
         }
         stage('Deploy') {
