@@ -5,6 +5,7 @@ pipeline {
     agent {
         docker {
             image 'nginx'
+            image 'httpd'
         }
     }
 
